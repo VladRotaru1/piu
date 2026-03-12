@@ -1,4 +1,4 @@
-Tema: Târg de mașini
+Tema proiect: Târg de mașini
 -
 
 Aplicația este un sistem de evidență digitală conceput pentru a monitoriza activitatea comercială dintr-un târg auto. Aceasta funcționează ca o bază de date interactivă unde fiecare tranzacție este înregistrată cu detalii complete despre mașină, actori (vânzător/cumpărător) și contextul financiar.
