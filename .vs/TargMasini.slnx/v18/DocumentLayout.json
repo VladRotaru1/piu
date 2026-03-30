@@ -1,0 +1,96 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\vladm\\source\\repos\\piu2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B4A152F8-8CE4-80D8-B927-70EFE0F1F050}|TargMasini\\TargMasini.csproj|c:\\users\\vladm\\source\\repos\\piu2\\targmasini\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4A152F8-8CE4-80D8-B927-70EFE0F1F050}|TargMasini\\TargMasini.csproj|solutionrelative:targmasini\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84154139-9197-79E0-F10B-50139B1F5845}|NivelStocareDate\\NivelStocareDate.csproj|c:\\users\\vladm\\source\\repos\\piu2\\nivelstocaredate\\managerdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84154139-9197-79E0-F10B-50139B1F5845}|NivelStocareDate\\NivelStocareDate.csproj|solutionrelative:nivelstocaredate\\managerdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0935EEEC-A7CA-CDAF-D191-55122A79B289}|LibrarieModele\\LibrarieModele.csproj|c:\\users\\vladm\\source\\repos\\piu2\\librariemodele\\tranzactie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0935EEEC-A7CA-CDAF-D191-55122A79B289}|LibrarieModele\\LibrarieModele.csproj|solutionrelative:librariemodele\\tranzactie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0935EEEC-A7CA-CDAF-D191-55122A79B289}|LibrarieModele\\LibrarieModele.csproj|c:\\users\\vladm\\source\\repos\\piu2\\librariemodele\\masina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0935EEEC-A7CA-CDAF-D191-55122A79B289}|LibrarieModele\\LibrarieModele.csproj|solutionrelative:librariemodele\\masina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu2\\TargMasini\\Program.cs",
+              "RelativeDocumentMoniker": "TargMasini\\Program.cs",
+              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu2\\TargMasini\\Program.cs",
+              "RelativeToolTip": "TargMasini\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T11:23:21.589Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ManagerDate.cs",
+              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu2\\NivelStocareDate\\ManagerDate.cs",
+              "RelativeDocumentMoniker": "NivelStocareDate\\ManagerDate.cs",
+              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu2\\NivelStocareDate\\ManagerDate.cs",
+              "RelativeToolTip": "NivelStocareDate\\ManagerDate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T11:23:19.345Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Tranzactie.cs",
+              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu2\\LibrarieModele\\Tranzactie.cs",
+              "RelativeDocumentMoniker": "LibrarieModele\\Tranzactie.cs",
+              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu2\\LibrarieModele\\Tranzactie.cs",
+              "RelativeToolTip": "LibrarieModele\\Tranzactie.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T11:23:11.721Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Masina.cs",
+              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu2\\LibrarieModele\\Masina.cs",
+              "RelativeDocumentMoniker": "LibrarieModele\\Masina.cs",
+              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu2\\LibrarieModele\\Masina.cs",
+              "RelativeToolTip": "LibrarieModele\\Masina.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T11:23:03.446Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

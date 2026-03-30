@@ -1,5 +1,5 @@
 <Solution>
-  <Project Path="../LibrarieModele/LibrarieModele.csproj" Id="5d29ca07-a649-49d1-9139-c688d8561621" />
-  <Project Path="../NivelStocareDate/NivelStocareDate.csproj" Id="4ad36359-28a5-446d-a199-ec75e3ec29c1" />
-  <Project Path="TargMasini.csproj" />
+  <Project Path="LibrarieModele/LibrarieModele.csproj" />
+  <Project Path="NivelStocareDate/NivelStocareDate.csproj" />
+  <Project Path="TargMasini/TargMasini.csproj" />
 </Solution>
