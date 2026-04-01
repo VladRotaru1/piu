@@ -1,22 +1,38 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\vladm\\source\\repos\\piu2\\",
+  "WorkspaceRootPath": "C:\\Users\\vladm\\source\\repos\\piu3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B4A152F8-8CE4-80D8-B927-70EFE0F1F050}|TargMasini\\TargMasini.csproj|c:\\users\\vladm\\source\\repos\\piu2\\targmasini\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B4A152F8-8CE4-80D8-B927-70EFE0F1F050}|TargMasini\\TargMasini.csproj|c:\\users\\vladm\\source\\repos\\piu3\\targmasini\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4A152F8-8CE4-80D8-B927-70EFE0F1F050}|TargMasini\\TargMasini.csproj|solutionrelative:targmasini\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84154139-9197-79E0-F10B-50139B1F5845}|NivelStocareDate\\NivelStocareDate.csproj|c:\\users\\vladm\\source\\repos\\piu2\\nivelstocaredate\\managerdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{84154139-9197-79E0-F10B-50139B1F5845}|NivelStocareDate\\NivelStocareDate.csproj|c:\\users\\vladm\\source\\repos\\piu3\\nivelstocaredate\\managerdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{84154139-9197-79E0-F10B-50139B1F5845}|NivelStocareDate\\NivelStocareDate.csproj|solutionrelative:nivelstocaredate\\managerdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0935EEEC-A7CA-CDAF-D191-55122A79B289}|LibrarieModele\\LibrarieModele.csproj|c:\\users\\vladm\\source\\repos\\piu2\\librariemodele\\tranzactie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0935EEEC-A7CA-CDAF-D191-55122A79B289}|LibrarieModele\\LibrarieModele.csproj|c:\\users\\vladm\\source\\repos\\piu3\\librariemodele\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0935EEEC-A7CA-CDAF-D191-55122A79B289}|LibrarieModele\\LibrarieModele.csproj|solutionrelative:librariemodele\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84154139-9197-79E0-F10B-50139B1F5845}|NivelStocareDate\\NivelStocareDate.csproj|c:\\users\\vladm\\source\\repos\\piu3\\nivelstocaredate\\administrareclienti_fisiertext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84154139-9197-79E0-F10B-50139B1F5845}|NivelStocareDate\\NivelStocareDate.csproj|solutionrelative:nivelstocaredate\\administrareclienti_fisiertext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4A152F8-8CE4-80D8-B927-70EFE0F1F050}|TargMasini\\TargMasini.csproj|c:\\users\\vladm\\source\\repos\\piu3\\targmasini\\bin\\debug\\net8.0\\masini.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{B4A152F8-8CE4-80D8-B927-70EFE0F1F050}|TargMasini\\TargMasini.csproj|solutionrelative:targmasini\\bin\\debug\\net8.0\\masini.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0935EEEC-A7CA-CDAF-D191-55122A79B289}|LibrarieModele\\LibrarieModele.csproj|c:\\users\\vladm\\source\\repos\\piu3\\librariemodele\\masina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0935EEEC-A7CA-CDAF-D191-55122A79B289}|LibrarieModele\\LibrarieModele.csproj|solutionrelative:librariemodele\\masina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0935EEEC-A7CA-CDAF-D191-55122A79B289}|LibrarieModele\\LibrarieModele.csproj|c:\\users\\vladm\\source\\repos\\piu3\\librariemodele\\tranzactie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0935EEEC-A7CA-CDAF-D191-55122A79B289}|LibrarieModele\\LibrarieModele.csproj|solutionrelative:librariemodele\\tranzactie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0935EEEC-A7CA-CDAF-D191-55122A79B289}|LibrarieModele\\LibrarieModele.csproj|c:\\users\\vladm\\source\\repos\\piu2\\librariemodele\\masina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0935EEEC-A7CA-CDAF-D191-55122A79B289}|LibrarieModele\\LibrarieModele.csproj|solutionrelative:librariemodele\\masina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84154139-9197-79E0-F10B-50139B1F5845}|NivelStocareDate\\NivelStocareDate.csproj|c:\\users\\vladm\\source\\repos\\piu3\\nivelstocaredate\\administraremasini_fisiertext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84154139-9197-79E0-F10B-50139B1F5845}|NivelStocareDate\\NivelStocareDate.csproj|solutionrelative:nivelstocaredate\\administraremasini_fisiertext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,8 +42,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu3\\TargMasini\\Program.cs",
+              "RelativeDocumentMoniker": "TargMasini\\Program.cs",
+              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu3\\TargMasini\\Program.cs",
+              "RelativeToolTip": "TargMasini\\Program.cs",
+              "ViewState": "AgIAALQAAAAAAAAAAAAYwLAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T11:23:21.589Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
@@ -38,55 +68,87 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu2\\TargMasini\\Program.cs",
-              "RelativeDocumentMoniker": "TargMasini\\Program.cs",
-              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu2\\TargMasini\\Program.cs",
-              "RelativeToolTip": "TargMasini\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAkAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "AdministrareClienti_FisierText.cs",
+              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu3\\NivelStocareDate\\AdministrareClienti_FisierText.cs",
+              "RelativeDocumentMoniker": "NivelStocareDate\\AdministrareClienti_FisierText.cs",
+              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu3\\NivelStocareDate\\AdministrareClienti_FisierText.cs",
+              "RelativeToolTip": "NivelStocareDate\\AdministrareClienti_FisierText.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T11:23:21.589Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-01T20:05:45.864Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Client.cs",
+              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu3\\LibrarieModele\\Client.cs",
+              "RelativeDocumentMoniker": "LibrarieModele\\Client.cs",
+              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu3\\LibrarieModele\\Client.cs",
+              "RelativeToolTip": "LibrarieModele\\Client.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAlwBIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T20:04:11.83Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "masini.txt",
+              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu3\\TargMasini\\bin\\Debug\\net8.0\\masini.txt",
+              "RelativeDocumentMoniker": "TargMasini\\bin\\Debug\\net8.0\\masini.txt",
+              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu3\\TargMasini\\bin\\Debug\\net8.0\\masini.txt",
+              "RelativeToolTip": "TargMasini\\bin\\Debug\\net8.0\\masini.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-03-31T11:30:55.133Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "ManagerDate.cs",
-              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu2\\NivelStocareDate\\ManagerDate.cs",
+              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu3\\NivelStocareDate\\ManagerDate.cs",
               "RelativeDocumentMoniker": "NivelStocareDate\\ManagerDate.cs",
-              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu2\\NivelStocareDate\\ManagerDate.cs",
+              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu3\\NivelStocareDate\\ManagerDate.cs",
               "RelativeToolTip": "NivelStocareDate\\ManagerDate.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAAQwBsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T11:23:19.345Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-30T11:23:19.345Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Tranzactie.cs",
-              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu2\\LibrarieModele\\Tranzactie.cs",
+              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu3\\LibrarieModele\\Tranzactie.cs",
               "RelativeDocumentMoniker": "LibrarieModele\\Tranzactie.cs",
-              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu2\\LibrarieModele\\Tranzactie.cs",
+              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu3\\LibrarieModele\\Tranzactie.cs",
               "RelativeToolTip": "LibrarieModele\\Tranzactie.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T11:23:11.721Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-30T11:23:11.721Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Masina.cs",
-              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu2\\LibrarieModele\\Masina.cs",
+              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu3\\LibrarieModele\\Masina.cs",
               "RelativeDocumentMoniker": "LibrarieModele\\Masina.cs",
-              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu2\\LibrarieModele\\Masina.cs",
+              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu3\\LibrarieModele\\Masina.cs",
               "RelativeToolTip": "LibrarieModele\\Masina.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADQAAAAAAAAAAAAcwD0AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T11:23:03.446Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-30T11:23:03.446Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AdministrareMasini_FisierText.cs",
+              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu3\\NivelStocareDate\\AdministrareMasini_FisierText.cs",
+              "RelativeDocumentMoniker": "NivelStocareDate\\AdministrareMasini_FisierText.cs",
+              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu3\\NivelStocareDate\\AdministrareMasini_FisierText.cs",
+              "RelativeToolTip": "NivelStocareDate\\AdministrareMasini_FisierText.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwCEAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T12:09:51.251Z"
             }
           ]
         }

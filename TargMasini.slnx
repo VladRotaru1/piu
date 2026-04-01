@@ -1,4 +1,9 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="README.md" />
+  </Folder>
   <Project Path="LibrarieModele/LibrarieModele.csproj" />
   <Project Path="NivelStocareDate/NivelStocareDate.csproj" />
   <Project Path="TargMasini/TargMasini.csproj" />

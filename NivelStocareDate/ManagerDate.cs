@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using LibrarieModele;
 namespace NivelStocareDate
 {
@@ -17,14 +19,14 @@ namespace NivelStocareDate
 
             bool dejaCumparator = tranzactii.Any(item =>
                 item.DataTranzactie.Date == t.DataTranzactie.Date &&
-                item.NumeCumparator == t.NumeCumparator);
+                item.Cumparator == t.Cumparator);
 
             bool dejaVanzator = tranzactii.Any(item =>
                 item.DataTranzactie.Date == t.DataTranzactie.Date &&
-                item.NumeVanzator == t.NumeVanzator);
+                item.Vanzator == t.Vanzator);
 
-            if (dejaCumparator) numeAvertizate.Add(t.NumeCumparator);
-            if (dejaVanzator) numeAvertizate.Add(t.NumeVanzator);
+            if (dejaCumparator) numeAvertizate.Add($"{t.Cumparator.Nume} {t.Cumparator.Prenume}");
+            if (dejaVanzator) numeAvertizate.Add($"{t.Vanzator.Nume} {t.Vanzator.Prenume}");
 
             return numeAvertizate;
         }

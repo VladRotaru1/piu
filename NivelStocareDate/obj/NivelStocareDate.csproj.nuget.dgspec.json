@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vladm\\source\\repos\\piu2\\NivelStocareDate\\NivelStocareDate.csproj": {}
+    "C:\\Users\\vladm\\source\\repos\\piu3\\NivelStocareDate\\NivelStocareDate.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vladm\\source\\repos\\piu2\\LibrarieModele\\LibrarieModele.csproj": {
+    "C:\\Users\\vladm\\source\\repos\\piu3\\LibrarieModele\\LibrarieModele.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vladm\\source\\repos\\piu2\\LibrarieModele\\LibrarieModele.csproj",
+        "projectUniqueName": "C:\\Users\\vladm\\source\\repos\\piu3\\LibrarieModele\\LibrarieModele.csproj",
         "projectName": "LibrarieModele",
-        "projectPath": "C:\\Users\\vladm\\source\\repos\\piu2\\LibrarieModele\\LibrarieModele.csproj",
+        "projectPath": "C:\\Users\\vladm\\source\\repos\\piu3\\LibrarieModele\\LibrarieModele.csproj",
         "packagesPath": "C:\\Users\\vladm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vladm\\source\\repos\\piu2\\LibrarieModele\\obj\\",
+        "outputPath": "C:\\Users\\vladm\\source\\repos\\piu3\\LibrarieModele\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -70,14 +70,14 @@
         }
       }
     },
-    "C:\\Users\\vladm\\source\\repos\\piu2\\NivelStocareDate\\NivelStocareDate.csproj": {
+    "C:\\Users\\vladm\\source\\repos\\piu3\\NivelStocareDate\\NivelStocareDate.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vladm\\source\\repos\\piu2\\NivelStocareDate\\NivelStocareDate.csproj",
+        "projectUniqueName": "C:\\Users\\vladm\\source\\repos\\piu3\\NivelStocareDate\\NivelStocareDate.csproj",
         "projectName": "NivelStocareDate",
-        "projectPath": "C:\\Users\\vladm\\source\\repos\\piu2\\NivelStocareDate\\NivelStocareDate.csproj",
+        "projectPath": "C:\\Users\\vladm\\source\\repos\\piu3\\NivelStocareDate\\NivelStocareDate.csproj",
         "packagesPath": "C:\\Users\\vladm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vladm\\source\\repos\\piu2\\NivelStocareDate\\obj\\",
+        "outputPath": "C:\\Users\\vladm\\source\\repos\\piu3\\NivelStocareDate\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -99,8 +99,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\vladm\\source\\repos\\piu2\\LibrarieModele\\LibrarieModele.csproj": {
-                "projectPath": "C:\\Users\\vladm\\source\\repos\\piu2\\LibrarieModele\\LibrarieModele.csproj"
+              "C:\\Users\\vladm\\source\\repos\\piu3\\LibrarieModele\\LibrarieModele.csproj": {
+                "projectPath": "C:\\Users\\vladm\\source\\repos\\piu3\\LibrarieModele\\LibrarieModele.csproj"
               }
             }
           }

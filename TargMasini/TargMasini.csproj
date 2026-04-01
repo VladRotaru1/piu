@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="bin\Debug\net8.0\masini.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\LibrarieModele\LibrarieModele.csproj" />
     <ProjectReference Include="..\NivelStocareDate\NivelStocareDate.csproj" />
   </ItemGroup>
