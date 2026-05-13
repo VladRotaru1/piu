@@ -52,13 +52,11 @@ namespace TargMasini
                         Console.ReadLine();
                         break;
                     case "F":
-                        Console.Write("ID-ul masinii pentru căutare: ");
-                        int idC = int.Parse(Console.ReadLine());
-                        Masina gasita = adminMasini.GetMasina(idC);
-                        if (gasita != null)
-                            Console.WriteLine($"Am găsit: {gasita.IDMasina} {gasita.Firma} {gasita.Model} {gasita.AnFabricatie} {gasita.Culoare} {gasita.Optiuni}");
-                        else
-                            Console.WriteLine("Mașina nu există.");
+                        Console.Write("Numele masinii (Firma) pentru căutare: ");
+                        string numeMasina = Console.ReadLine();
+                        List<Masina> gasita = adminMasini.GetMasina(numeMasina);
+                        foreach (Masina m in gasita)
+                            Console.WriteLine($"Am găsit: {m.IDMasina} {m.Firma} {m.Model} {m.AnFabricatie} {m.Culoare} {m.Optiuni}");
                         Console.ReadLine();
                         break;
                     case "M":
@@ -67,11 +65,11 @@ namespace TargMasini
                         break;
                     case "T":
                         Console.WriteLine("\n--- REALIZARE TRANZACȚIE ---");
-                        Console.WriteLine("Introduceți id-ul mașinii dorite: ");
-                        int idT = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Introduceți ID-ul masinii dorite: ");
+                        int idMasina = int.Parse(Console.ReadLine());
 
                         //Cautam masina în fisier
-                        Masina masinaGasita = adminMasini.GetMasina(idT);
+                        Masina masinaGasita = adminMasini.GetMasina(idMasina);
 
                         if (masinaGasita != null)
                         {

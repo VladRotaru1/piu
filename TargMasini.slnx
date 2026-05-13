@@ -4,6 +4,7 @@
     <File Path=".gitignore" />
     <File Path="README.md" />
   </Folder>
+  <Project Path="InterfataUtilizatorWPF/InterfataUtilizatorWPF.csproj" Id="6710b984-4a05-4875-a750-758360eaa3ef" />
   <Project Path="LibrarieModele/LibrarieModele.csproj" />
   <Project Path="NivelStocareDate/NivelStocareDate.csproj" />
   <Project Path="TargMasini/TargMasini.csproj" />

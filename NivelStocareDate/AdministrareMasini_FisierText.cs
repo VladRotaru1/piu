@@ -38,6 +38,23 @@ namespace NivelStocareDate
             }
             return masini;
         }
+        public List<Masina> GetMasina(string firma)
+        {   
+            List<Masina> masini = new List<Masina>();
+            using (StreamReader sr = new StreamReader(numeFisier))
+            {
+                string linie;
+                while ((linie = sr.ReadLine()) != null)
+                {
+                    Masina m = new Masina(linie);
+                    if (m.Firma == firma)
+                    {
+                        masini.Add(m);
+                    }
+                }
+            }
+            return masini;
+        }
         public Masina GetMasina(int id)
         {
             using (StreamReader sr = new StreamReader(numeFisier))
