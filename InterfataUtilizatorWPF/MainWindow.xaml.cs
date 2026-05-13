@@ -30,19 +30,6 @@ namespace InterfataUtilizatorWPF
             string numeFisier = "masini.txt";
             adminMasini = new AdministrareMasini_FisierText(numeFisier);
         }
-        private void btnAfiseaza_Click(object sender, RoutedEventArgs e)
-        {
-            // Instanțiem o mașină (Entitatea ta)
-            Masina masinaMea = new Masina(1, "Dacia", "Logan", 2022, CuloareMasina.Alb, Dotari.ScauneIncalzite);
-
-            // Actualizăm etichetele din XAML
-            lblFirma.Content = "Marcă: " + masinaMea.Firma;
-            lblModel.Content = "Model: " + masinaMea.Model;
-            lblAn.Content = "An Fabricație: " + masinaMea.AnFabricatie;
-            lblCuloare.Content = "Culoare: " + masinaMea.Culoare;
-            lblOptiuni.Content = "Opțiuni: " + masinaMea.Optiuni;
-
-        }
         private void btnAdauga_Click(object sender, RoutedEventArgs e)
         {
             ResetareCuloriEtichete();
@@ -73,7 +60,28 @@ namespace InterfataUtilizatorWPF
                 erori += "An invalid. ";
                 dateValide = false;
             }
-
+            CuloareMasina culoare = CuloareMasina.Alb;
+            if (rbAlb.IsChecked == true)
+                culoare = CuloareMasina.Alb;
+            if (rbNegru.IsChecked == true)
+                culoare = CuloareMasina.Negru;
+            if (rbRosu.IsChecked == true)
+                culoare = CuloareMasina.Rosu;
+            if (rbGri.IsChecked == true)
+                culoare = CuloareMasina.Gri;
+            if (rbAlbastru.IsChecked == true)
+                culoare = CuloareMasina.Albastru;
+            Dotari dotari = Dotari.None;
+            if (cbAerConditionat.IsChecked == true)
+                dotari |= Dotari.AerConditionat;
+            if (cbNavigatie.IsChecked == true)
+                dotari |= Dotari.Navigatie;
+            if (cbCutieAutomata.IsChecked == true)
+                dotari |= Dotari.CutieAutomata;
+            if (cbScauneIncalzite.IsChecked == true)
+                dotari |= Dotari.ScauneIncalzite;
+            if (cbSenzoriParcare.IsChecked == true)
+                dotari |= Dotari.SenzoriParcare;
             // Dacă totul e ok
             if (dateValide)
             {
@@ -81,7 +89,7 @@ namespace InterfataUtilizatorWPF
                 // Pentru test, afișăm un mesaj de succes
                 int nouID = adminMasini.GetMasini().Count + 1;
 
-                Masina m = new Masina(nouID, txtFirma.Text, txtModel.Text, an, CuloareMasina.Alb, Dotari.None);
+                Masina m = new Masina(nouID, txtFirma.Text, txtModel.Text, an, culoare, dotari);
 
                 adminMasini.AddMasina(m);
                 MessageBox.Show("Mașina a fost adăugată cu succes!");
@@ -94,7 +102,7 @@ namespace InterfataUtilizatorWPF
         }
         private void btnReset_Click(object sender, RoutedEventArgs e)
         {
-            txtFirma.Text = txtModel.Text = txtAn.Text = txtCuloare.Text = txtOptiuni.Text = string.Empty;
+            txtFirma.Text = txtModel.Text = txtAn.Text = string.Empty;
             ResetareCuloriEtichete();
             txtMesajEroare.Visibility = Visibility.Collapsed;
         }
@@ -105,6 +113,25 @@ namespace InterfataUtilizatorWPF
             lblAn.Foreground = Brushes.Black;
             lblCuloare.Foreground = Brushes.Black;
             lblOptiuni.Foreground = Brushes.Black;
+        }
+        private void btnCauta_Click(object sender, RoutedEventArgs e)
+        {
+            List<Masina> masini = adminMasini.GetMasini();
+
+            string cautare = txtCautare.Text.ToLower();
+
+            Masina masinaGasita = masini.FirstOrDefault(m => m.Firma.ToLower().Contains(cautare));
+
+            if (masinaGasita != null)
+            {
+                MessageBox.Show(
+                    $"Masina găsită:\n" +
+                    $"{masinaGasita.Firma} {masinaGasita.Model}");
+            }
+            else
+            {
+                MessageBox.Show("Nu s-a găsit mașina.");
+            }
         }
     }
 }

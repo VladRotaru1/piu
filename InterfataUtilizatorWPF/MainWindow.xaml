@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InterfataUtilizatorWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="800" Width="800">
     <Grid>
         <StackPanel Margin="20">
             <TextBlock Text="Adăugare Mașină" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
@@ -18,9 +18,42 @@
                     <Label x:Name="lblAn" Content="An Fabricație: " FontSize="14"/>
                     <TextBox x:Name="txtAn" Margin="0,0,0,5"/>
                     <Label x:Name="lblCuloare" Content="Culoare: " FontSize="14"/>
-                    <TextBox x:Name="txtCuloare" Margin="0,0,0,5"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <RadioButton x:Name="rbAlb"
+                             Content="Alb"
+                             IsChecked="True"
+                             Margin="5"/>
+                        <RadioButton x:Name="rbNegru"
+                             Content="Negru"
+                             Margin="5"/>
+                        <RadioButton x:Name="rbRosu"
+                             Content="Roșu"
+                             Margin="5"/>
+                        <RadioButton x:Name="rbAlbastru"
+                             Content="Albastru"
+                             Margin="5"/>
+                        <RadioButton x:Name="rbGri"
+                             Content="Gri"
+                             Margin="5"/>
+                    </StackPanel>
                     <Label x:Name="lblOptiuni" Content="Opțiuni: " FontSize="14"/>
-                    <TextBox x:Name="txtOptiuni" Margin="0,0,0,5"/>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox x:Name="cbAerConditionat"
+                              Content="Aer Condiționat"
+                              Margin="5"/>
+                        <CheckBox x:Name="cbNavigatie"
+                              Content="Sistem Navigație"
+                              Margin="5"/>
+                        <CheckBox x:Name="cbCutieAutomata"
+                              Content="Cutie Automată"
+                              Margin="5"/>
+                        <CheckBox x:Name="cbScauneIncalzite"
+                              Content="Scaune Încălzite"
+                              Margin="5"/>
+                        <CheckBox x:Name="cbSenzoriParcare"
+                              Content="Senzori Parcare"
+                              Margin="5"/>
+                    </StackPanel>
                 </StackPanel>
             </Border>
             <TextBlock x:Name="txtMesajEroare" Foreground="Red" Margin="0,10" Visibility="Collapsed"/>
@@ -28,6 +61,13 @@
                 <Button Content="Adaugă" Click="btnAdauga_Click" Height="30" Margin="5"/>
                 <Button Content="Reset" Click="btnReset_Click" Height="30" Margin="5"/>
             </UniformGrid>
+            <Label Content="Căutare"/>
+            <TextBox x:Name="txtCautare"
+                 Height="30"
+                 Margin="0,0,0,10"/>
+            <Button Content="Caută"
+                Width="120"
+                Click="btnCauta_Click"/>
         </StackPanel>
     </Grid>
 </Window>
