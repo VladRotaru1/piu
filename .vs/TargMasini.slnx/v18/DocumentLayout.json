@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\vladm\\source\\repos\\piu3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6710B984-4A05-4875-A750-758360EAA3EF}|InterfataUtilizatorWPF\\InterfataUtilizatorWPF.csproj|c:\\users\\vladm\\source\\repos\\piu3\\interfatautilizatorwpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6710B984-4A05-4875-A750-758360EAA3EF}|InterfataUtilizatorWPF\\InterfataUtilizatorWPF.csproj|solutionrelative:interfatautilizatorwpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6710B984-4A05-4875-A750-758360EAA3EF}|InterfataUtilizatorWPF\\InterfataUtilizatorWPF.csproj|c:\\users\\vladm\\source\\repos\\piu3\\interfatautilizatorwpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{6710B984-4A05-4875-A750-758360EAA3EF}|InterfataUtilizatorWPF\\InterfataUtilizatorWPF.csproj|solutionrelative:interfatautilizatorwpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{6710B984-4A05-4875-A750-758360EAA3EF}|InterfataUtilizatorWPF\\InterfataUtilizatorWPF.csproj|c:\\users\\vladm\\source\\repos\\piu3\\interfatautilizatorwpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6710B984-4A05-4875-A750-758360EAA3EF}|InterfataUtilizatorWPF\\InterfataUtilizatorWPF.csproj|solutionrelative:interfatautilizatorwpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84154139-9197-79E0-F10B-50139B1F5845}|NivelStocareDate\\NivelStocareDate.csproj|c:\\users\\vladm\\source\\repos\\piu3\\nivelstocaredate\\administraremasini_fisiertext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84154139-9197-79E0-F10B-50139B1F5845}|NivelStocareDate\\NivelStocareDate.csproj|solutionrelative:nivelstocaredate\\administraremasini_fisiertext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0935EEEC-A7CA-CDAF-D191-55122A79B289}|LibrarieModele\\LibrarieModele.csproj|c:\\users\\vladm\\source\\repos\\piu3\\librariemodele\\masina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0935EEEC-A7CA-CDAF-D191-55122A79B289}|LibrarieModele\\LibrarieModele.csproj|solutionrelative:librariemodele\\masina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84154139-9197-79E0-F10B-50139B1F5845}|NivelStocareDate\\NivelStocareDate.csproj|c:\\users\\vladm\\source\\repos\\piu3\\nivelstocaredate\\managerdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84154139-9197-79E0-F10B-50139B1F5845}|NivelStocareDate\\NivelStocareDate.csproj|solutionrelative:nivelstocaredate\\managerdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84154139-9197-79E0-F10B-50139B1F5845}|NivelStocareDate\\NivelStocareDate.csproj|c:\\users\\vladm\\source\\repos\\piu3\\nivelstocaredate\\nivelstocaredate.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{84154139-9197-79E0-F10B-50139B1F5845}|NivelStocareDate\\NivelStocareDate.csproj|solutionrelative:nivelstocaredate\\nivelstocaredate.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,32 +47,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu3\\InterfataUtilizatorWPF\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "InterfataUtilizatorWPF\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu3\\InterfataUtilizatorWPF\\MainWindow.xaml.cs",
-              "RelativeToolTip": "InterfataUtilizatorWPF\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAkwHoAAABiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T19:06:45.512Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Masina.cs",
-              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu3\\LibrarieModele\\Masina.cs",
-              "RelativeDocumentMoniker": "LibrarieModele\\Masina.cs",
-              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu3\\LibrarieModele\\Masina.cs",
-              "RelativeToolTip": "LibrarieModele\\Masina.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T19:58:38.619Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu3\\InterfataUtilizatorWPF\\MainWindow.xaml",
               "RelativeDocumentMoniker": "InterfataUtilizatorWPF\\MainWindow.xaml",
@@ -69,6 +55,70 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-05-13T19:06:12.507Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Masina.cs",
+              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu3\\LibrarieModele\\Masina.cs",
+              "RelativeDocumentMoniker": "LibrarieModele\\Masina.cs",
+              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu3\\LibrarieModele\\Masina.cs",
+              "RelativeToolTip": "LibrarieModele\\Masina.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAApwDgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T19:58:38.619Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu3\\InterfataUtilizatorWPF\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "InterfataUtilizatorWPF\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu3\\InterfataUtilizatorWPF\\MainWindow.xaml.cs",
+              "RelativeToolTip": "InterfataUtilizatorWPF\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAN0AAAAAAAAAAAAmwO0AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T19:06:45.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdministrareMasini_FisierText.cs",
+              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu3\\NivelStocareDate\\AdministrareMasini_FisierText.cs",
+              "RelativeDocumentMoniker": "NivelStocareDate\\AdministrareMasini_FisierText.cs",
+              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu3\\NivelStocareDate\\AdministrareMasini_FisierText.cs",
+              "RelativeToolTip": "NivelStocareDate\\AdministrareMasini_FisierText.cs",
+              "ViewState": "AgIAAF4AAAAAAAAAAAA0wGUAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T21:12:04.39Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ManagerDate.cs",
+              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu3\\NivelStocareDate\\ManagerDate.cs",
+              "RelativeDocumentMoniker": "NivelStocareDate\\ManagerDate.cs",
+              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu3\\NivelStocareDate\\ManagerDate.cs",
+              "RelativeToolTip": "NivelStocareDate\\ManagerDate.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAiwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T09:49:30.733Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "NivelStocareDate.csproj",
+              "DocumentMoniker": "C:\\Users\\vladm\\source\\repos\\piu3\\NivelStocareDate\\NivelStocareDate.csproj",
+              "RelativeDocumentMoniker": "NivelStocareDate\\NivelStocareDate.csproj",
+              "ToolTip": "C:\\Users\\vladm\\source\\repos\\piu3\\NivelStocareDate\\NivelStocareDate.csproj",
+              "RelativeToolTip": "NivelStocareDate\\NivelStocareDate.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-05-13T21:11:59.749Z"
             }
           ]
         }

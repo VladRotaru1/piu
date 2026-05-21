@@ -87,7 +87,22 @@ namespace InterfataUtilizatorWPF
             {
                 // Aici vei apela adminMasini.AddMasina(nouaMasina) din NivelStocareDate
                 // Pentru test, afișăm un mesaj de succes
-                int nouID = adminMasini.GetMasini().Count + 1;
+                int nouID = 1; // Pornim de la 1 dacă fișierul e gol
+                var masiniExistente = adminMasini.GetMasini();
+
+                if (masiniExistente != null && masiniExistente.Count > 0)
+                {
+                    // Căutăm cel mai mare ID din listă
+                    int idMaxim = 0;
+                    foreach (var masina in masiniExistente)
+                    {
+                        if (masina.IDMasina > idMaxim)
+                        {
+                            idMaxim = masina.IDMasina;
+                        }
+                    }
+                    nouID = idMaxim + 1; // Noul ID va fi cu 1 mai mare decât cel mai mare găsit
+                }
 
                 Masina m = new Masina(nouID, txtFirma.Text, txtModel.Text, an, culoare, dotari);
 
@@ -116,22 +131,117 @@ namespace InterfataUtilizatorWPF
         }
         private void btnCauta_Click(object sender, RoutedEventArgs e)
         {
+            // 1. Luăm lista completă de mașini din fișier
             List<Masina> masini = adminMasini.GetMasini();
 
-            string cautare = txtCautare.Text.ToLower();
-
-            Masina masinaGasita = masini.FirstOrDefault(m => m.Firma.ToLower().Contains(cautare));
-
-            if (masinaGasita != null)
+            // Dacă fișierul este gol, nu avem ce căuta
+            if (masini == null || masini.Count == 0)
             {
-                MessageBox.Show(
-                    $"Masina găsită:\n" +
-                    $"{masinaGasita.Firma} {masinaGasita.Model}");
+                MessageBox.Show("Nu există mașini salvate în baza de date.");
+                return;
+            }
+
+            // 2. Preluăm criteriile introduse de tine în formularele de sus
+            string filtruFirma = txtFirma.Text.ToLower().Trim();
+            string filtruModel = txtModel.Text.ToLower().Trim();
+            string filtruAn = txtAn.Text.Trim();
+
+            // Preluăm culoarea selectată în acest moment în RadioButtons
+            CuloareMasina culoareSelectata = CuloareMasina.Alb;
+            if (rbAlb.IsChecked == true) culoareSelectata = CuloareMasina.Alb;
+            if (rbNegru.IsChecked == true) culoareSelectata = CuloareMasina.Negru;
+            if (rbRosu.IsChecked == true) culoareSelectata = CuloareMasina.Rosu;
+            if (rbGri.IsChecked == true) culoareSelectata = CuloareMasina.Gri;
+            if (rbAlbastru.IsChecked == true) culoareSelectata = CuloareMasina.Albastru;
+
+            // Preluăm opțiunile bifate în CheckBoxes
+            Dotari dotariSelectate = Dotari.None;
+            if (cbAerConditionat.IsChecked == true) dotariSelectate |= Dotari.AerConditionat;
+            if (cbNavigatie.IsChecked == true) dotariSelectate |= Dotari.Navigatie;
+            if (cbCutieAutomata.IsChecked == true) dotariSelectate |= Dotari.CutieAutomata;
+            if (cbScauneIncalzite.IsChecked == true) dotariSelectate |= Dotari.ScauneIncalzite;
+            if (cbSenzoriParcare.IsChecked == true) dotariSelectate |= Dotari.SenzoriParcare;
+
+            // 3. Aplicăm filtrarea pas cu pas (dacă un câmp este gol, programul îl ignoră și caută după restul)
+            var rezultate = masini.Where(m =>
+                (string.IsNullOrEmpty(filtruFirma) || (m.Firma != null && m.Firma.ToLower().Contains(filtruFirma))) &&
+                (string.IsNullOrEmpty(filtruModel) || (m.Model != null && m.Model.ToLower().Contains(filtruModel))) &&
+                (string.IsNullOrEmpty(filtruAn) || m.AnFabricatie.ToString() == filtruAn) &&
+                (m.Culoare == culoareSelectata) &&
+                ((m.Optiuni & dotariSelectate) == dotariSelectate) // Verifică dacă mașina are cel puțin dotările bifate de tine
+            ).ToList();
+
+            // 4. Trimitem lista filtrată în DataGrid (tabel)
+            dgMasini.ItemsSource = null;
+            dgMasini.ItemsSource = rezultate;
+
+            // 5. Notificare dacă nu s-a găsit nimic
+            if (rezultate.Count == 0)
+            {
+                MessageBox.Show("Nu s-au găsit mașini care să corespundă exact criteriilor selectate în formular.");
+            }
+        }
+
+        // 2. Butonul care salvează totul
+        private void btnModifica_Click(object sender, RoutedEventArgs e)
+        {
+            // 1. Verificăm dacă ai selectat mașina pe care vrei să o modifici
+            if (dgMasini.SelectedItem is Masina masinaDeModificat)
+            {
+                // 2. Suprascriem proprietățile ei cu noile date scrise de tine în câmpurile de sus
+                masinaDeModificat.Firma = txtFirma.Text;
+                masinaDeModificat.Model = txtModel.Text;
+
+                if (int.TryParse(txtAn.Text, out int anNou))
+                {
+                    masinaDeModificat.AnFabricatie = anNou;
+                }
+
+                // Preluăm culoarea nouă de la butoanele de sus
+                if (rbAlb.IsChecked == true) masinaDeModificat.Culoare = CuloareMasina.Alb;
+                else if (rbNegru.IsChecked == true) masinaDeModificat.Culoare = CuloareMasina.Negru;
+                else if (rbRosu.IsChecked == true) masinaDeModificat.Culoare = CuloareMasina.Rosu;
+                else if (rbGri.IsChecked == true) masinaDeModificat.Culoare = CuloareMasina.Gri;
+                else if (rbAlbastru.IsChecked == true) masinaDeModificat.Culoare = CuloareMasina.Albastru;
+
+                // Preluăm opțiunile noi din CheckBox-urile de sus
+                Dotari dotariNoi = Dotari.None;
+                if (cbAerConditionat.IsChecked == true) dotariNoi |= Dotari.AerConditionat;
+                if (cbNavigatie.IsChecked == true) dotariNoi |= Dotari.Navigatie;
+                if (cbCutieAutomata.IsChecked == true) dotariNoi |= Dotari.CutieAutomata;
+                if (cbScauneIncalzite.IsChecked == true) dotariNoi |= Dotari.ScauneIncalzite;
+                if (cbSenzoriParcare.IsChecked == true) dotariNoi |= Dotari.SenzoriParcare;
+
+                masinaDeModificat.Optiuni = dotariNoi;
+
+                // 3. Trimitem obiectul modificat către fișierul text
+                bool succes = adminMasini.ModificaMasina(masinaDeModificat);
+
+                if (succes)
+                {
+                    MessageBox.Show("Informațiile mașinii au fost actualizate cu succes folosind datele din formular!");
+                    ActualizeazaAfisare(); // Dă refresh la listă ca să vezi schimbarea
+                }
+                else
+                {
+                    MessageBox.Show("Eroare la salvarea modificărilor în fișier.");
+                }
             }
             else
             {
-                MessageBox.Show("Nu s-a găsit mașina.");
+                MessageBox.Show("Vă rugăm să selectați mai întâi mașina din listă pe care doriți să o modificați.");
             }
+        }
+        private void ActualizeazaAfisare()
+        {
+            List<Masina> masini = adminMasini.GetMasini();
+            dgMasini.ItemsSource = masini;
+        }
+
+        private void btnAfiseaza_Click(object sender, RoutedEventArgs e)
+        {
+            dgMasini.ItemsSource = null;
+            dgMasini.ItemsSource = adminMasini.GetMasini();
         }
     }
 }

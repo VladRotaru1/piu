@@ -8,7 +8,7 @@
         Title="MainWindow" Height="800" Width="800">
     <Grid>
         <StackPanel Margin="20">
-            <TextBlock Text="Adăugare Mașină" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+            <TextBlock Text="Mașină:" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
             <Border BorderBrush="Black" BorderThickness="1" Padding="10" CornerRadius="5" Background="#F9F9F9">
                 <StackPanel>
                     <Label x:Name="lblFirma" Content="Marcă: " FontSize="14"/>
@@ -59,15 +59,20 @@
             <TextBlock x:Name="txtMesajEroare" Foreground="Red" Margin="0,10" Visibility="Collapsed"/>
             <UniformGrid Columns="2" Margin="0,10">
                 <Button Content="Adaugă" Click="btnAdauga_Click" Height="30" Margin="5"/>
+                <Button Content="Afiseaza" Click="btnAfiseaza_Click" Height="30" Margin="5"/>
+                <Button Content="Modifică" Click="btnModifica_Click" Height="30" Margin="5"/>
+                <Button Content="Caută" Click="btnCauta_Click" Height="30" Margin="5"/>
                 <Button Content="Reset" Click="btnReset_Click" Height="30" Margin="5"/>
             </UniformGrid>
-            <Label Content="Căutare"/>
-            <TextBox x:Name="txtCautare"
-                 Height="30"
-                 Margin="0,0,0,10"/>
-            <Button Content="Caută"
-                Width="120"
-                Click="btnCauta_Click"/>
+            <DataGrid x:Name="dgMasini" AutoGenerateColumns="False" Margin="0,10" Height="200">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Marca" Binding="{Binding Firma}"/>
+                    <DataGridTextColumn Header="Model" Binding="{Binding Model}"/>
+                    <DataGridTextColumn Header="An Fabricație" Binding="{Binding AnFabricatie}"/>
+                    <DataGridTextColumn Header="Culoare" Binding="{Binding Culoare}"/>
+                    <DataGridTextColumn Header="Dotări" Binding="{Binding Optiuni}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
     </Grid>
 </Window>

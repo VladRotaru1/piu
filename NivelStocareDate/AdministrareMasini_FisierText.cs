@@ -92,5 +92,30 @@ namespace NivelStocareDate
                 }
             }
         }
+        public bool ModificaMasina(Masina masinaModificata)
+        {
+            List<Masina> masini = GetMasini();
+            bool gasit = false;
+
+            for (int i = 0; i < masini.Count; i++)
+            {
+                if (masini[i].IDMasina == masinaModificata.IDMasina)
+                {
+                    masini[i] = masinaModificata;
+                    gasit = true;
+                    break;
+                }
+            }
+
+            if (gasit)
+            {
+                File.WriteAllText(numeFisier, string.Empty); // Golește fișierul
+                foreach (var m in masini)
+                {
+                    AddMasina(m); // Scrie mașinile (cea modificată + restul)
+                }
+            }
+            return gasit;
+        }
     }
 }
