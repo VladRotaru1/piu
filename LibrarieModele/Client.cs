@@ -23,23 +23,23 @@ namespace LibrarieModele
             Telefon = date[4];
         }
 
-        public Client(int id, string nume, string prenume, string email, string telefon)
+        public Client(int id, string nume, string prenume, string telefon, string email)
         {
             IdClient = id;
             Nume = nume;
             Prenume = prenume;
-            Email = email;
             Telefon = telefon;
+            Email = email;
         }
 
         public string ToStringFisier()
         {
-            return $"{IdClient};{Nume};{Prenume};{Email};{Telefon}";
+            return $"{IdClient};{Nume};{Prenume};{Telefon};{Email}";
         }
 
         public override string ToString()
         {
-            return $"ID: {IdClient} | {Nume} {Prenume} | Email: {Email} | Tel: {Telefon}";
+            return $"ID: {IdClient} | {Nume} {Prenume} | Tel: {Telefon} | Email: {Email}";
         }
     }
 }

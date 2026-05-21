@@ -38,5 +38,43 @@ namespace NivelStocareDate
             }
             return lista;
         }
+        public bool ModificaClient(Client clientActualizat)
+        {
+            List<Client> clienti = GetClienti();
+            bool actualizat = false;
+
+            foreach (var c in clienti)
+            {
+                if (c.IdClient == clientActualizat.IdClient)
+                {
+                    c.Nume = clientActualizat.Nume;
+                    c.Prenume = clientActualizat.Prenume;
+                    c.Telefon = clientActualizat.Telefon;
+                    c.Email = clientActualizat.Email; 
+                    actualizat = true;
+                    break;
+                }
+            }
+
+            if (actualizat)
+            {
+                try
+                {
+                    using (StreamWriter sw = new StreamWriter(numeFisier, false))
+                    {
+                        foreach (var c in clienti)
+                        {
+                            sw.WriteLine(c.ToStringFisier());
+                        }
+                    }
+                    return true;
+                }
+                catch (IOException)
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
     }
 }

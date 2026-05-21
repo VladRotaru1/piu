@@ -1,5 +1,6 @@
 ﻿using LibrarieModele;
 using NivelStocareDate;
+using System.ComponentModel;
 using System.Configuration;
 using System.Text;
 using System.Windows;
@@ -17,9 +18,29 @@ namespace InterfataUtilizatorWPF
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
         AdministrareMasini_FisierText adminMasini;
+        AdministrareClienti_FisierText adminClienti;
+        private string _statusAplicatie;
+        public string StatusAplicatie
+        {
+            get => _statusAplicatie;
+            set { _statusAplicatie = value; OnPropertyChanged(); }
+        }
+
+        private string _numarStatisticiText;
+        public string NumarStatisticiText
+        {
+            get => _numarStatisticiText;
+            set { _numarStatisticiText = value; OnPropertyChanged(); }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
         private const int MAX_CARACTERE = 15;
         private const int AN_MINIM = 1900;
 
@@ -29,6 +50,19 @@ namespace InterfataUtilizatorWPF
 
             string numeFisier = "masini.txt";
             adminMasini = new AdministrareMasini_FisierText(numeFisier);
+            // Inițializare fișier pentru a doua entitate
+            adminClienti = new AdministrareClienti_FisierText("clienti.txt");
+
+            // Activarea legăturii (DataContext) pentru Data Binding
+            this.DataContext = this;
+
+            // Dimensiuni ideale pentru ecranul pe 2 coloane
+            this.Width = 1000;
+            this.Height = 700;
+
+            // Mesaje inițiale transmise direct prin binding în interfață
+            StatusAplicatie = "Sistem pregătit. Gata pentru operații CRUD.";
+            ActualizeazaStatisticiStatut();
         }
         private void btnAdauga_Click(object sender, RoutedEventArgs e)
         {
@@ -118,6 +152,8 @@ namespace InterfataUtilizatorWPF
         private void btnReset_Click(object sender, RoutedEventArgs e)
         {
             txtFirma.Text = txtModel.Text = txtAn.Text = string.Empty;
+            cbAerConditionat.IsChecked = cbNavigatie.IsChecked = cbCutieAutomata.IsChecked = cbScauneIncalzite.IsChecked = cbSenzoriParcare.IsChecked = false;
+            rbAlb.IsChecked = rbNegru.IsChecked = rbRosu.IsChecked = rbGri.IsChecked = rbAlbastru.IsChecked = false;
             ResetareCuloriEtichete();
             txtMesajEroare.Visibility = Visibility.Collapsed;
         }
@@ -189,12 +225,16 @@ namespace InterfataUtilizatorWPF
             if (dgMasini.SelectedItem is Masina masinaDeModificat)
             {
                 // 2. Suprascriem proprietățile ei cu noile date scrise de tine în câmpurile de sus
-                masinaDeModificat.Firma = txtFirma.Text;
-                masinaDeModificat.Model = txtModel.Text;
-
-                if (int.TryParse(txtAn.Text, out int anNou))
+                if(txtFirma.Text != string.Empty)
+                    masinaDeModificat.Firma = txtFirma.Text;
+                if(txtModel.Text != string.Empty)
+                    masinaDeModificat.Model = txtModel.Text;
+                if(txtAn.Text != string.Empty)
                 {
-                    masinaDeModificat.AnFabricatie = anNou;
+                    if (int.TryParse(txtAn.Text, out int anNou))
+                    {
+                        masinaDeModificat.AnFabricatie = anNou;
+                    }
                 }
 
                 // Preluăm culoarea nouă de la butoanele de sus
@@ -203,8 +243,9 @@ namespace InterfataUtilizatorWPF
                 else if (rbRosu.IsChecked == true) masinaDeModificat.Culoare = CuloareMasina.Rosu;
                 else if (rbGri.IsChecked == true) masinaDeModificat.Culoare = CuloareMasina.Gri;
                 else if (rbAlbastru.IsChecked == true) masinaDeModificat.Culoare = CuloareMasina.Albastru;
+                else masinaDeModificat.Culoare = masinaDeModificat.Culoare; // Dacă nu s-a schimbat, păstrăm culoarea veche
 
-                // Preluăm opțiunile noi din CheckBox-urile de sus
+                // Preluăm opțiunile noi din CheckBox
                 Dotari dotariNoi = Dotari.None;
                 if (cbAerConditionat.IsChecked == true) dotariNoi |= Dotari.AerConditionat;
                 if (cbNavigatie.IsChecked == true) dotariNoi |= Dotari.Navigatie;
@@ -212,6 +253,7 @@ namespace InterfataUtilizatorWPF
                 if (cbScauneIncalzite.IsChecked == true) dotariNoi |= Dotari.ScauneIncalzite;
                 if (cbSenzoriParcare.IsChecked == true) dotariNoi |= Dotari.SenzoriParcare;
 
+                if (dotariNoi == Dotari.None) dotariNoi = masinaDeModificat.Optiuni; // Dacă nu s-a schimbat, păstrăm opțiunile vechi
                 masinaDeModificat.Optiuni = dotariNoi;
 
                 // 3. Trimitem obiectul modificat către fișierul text
@@ -242,6 +284,86 @@ namespace InterfataUtilizatorWPF
         {
             dgMasini.ItemsSource = null;
             dgMasini.ItemsSource = adminMasini.GetMasini();
+        }
+        /// CLIENT
+        private void btnAdaugaClient_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNumeClient.Text) || string.IsNullOrWhiteSpace(txtPrenumeClient.Text))
+            {
+                MessageBox.Show("Introduceți numele și prenumele clientului!");
+                return;
+            }
+
+            int nouID = 1;
+            var clientiExistenti = adminClienti.GetClienti();
+            if (clientiExistenti != null && clientiExistenti.Count > 0)
+            {
+                nouID = clientiExistenti.Max(c => c.IdClient) + 1;
+            }
+      
+            Client c = new Client(nouID, txtNumeClient.Text, txtPrenumeClient.Text, txtTelefonClient.Text, txtEmailClient.Text);
+            adminClienti.AddClient(c);
+            MessageBox.Show("Client salvat cu succes!");
+
+            StatusAplicatie = $"Adăugat client: {c.Nume} {c.Prenume}";
+            ActualizeazaStatisticiStatut();
+            dgClienti.ItemsSource = adminClienti.GetClienti();
+            ReseteazaClient();
+        }
+
+        private void btnAfiseazaClienti_Click(object sender, RoutedEventArgs e)
+        {
+            dgClienti.ItemsSource = null;
+            dgClienti.ItemsSource = adminClienti.GetClienti();
+
+            StatusAplicatie = "Au fost afișați clienții din baza de date.";
+            ActualizeazaStatisticiStatut();
+            ReseteazaClient();
+        }
+
+        private void btnModificaClient_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgClienti.SelectedItem is Client clientSelectat)
+            {
+                clientSelectat.IdClient = clientSelectat.IdClient;
+                if (txtNumeClient.Text != string.Empty)
+                    clientSelectat.Nume = txtNumeClient.Text;
+                if (txtPrenumeClient.Text != string.Empty)
+                    clientSelectat.Prenume = txtPrenumeClient.Text;
+                if (txtTelefonClient.Text != string.Empty)
+                    clientSelectat.Telefon = txtTelefonClient.Text;
+                if (txtEmailClient.Text != string.Empty)
+                        clientSelectat.Email = txtEmailClient.Text;
+
+                bool succes = adminClienti.ModificaClient(clientSelectat);
+                if (succes)
+                {
+                    MessageBox.Show("Datele clientului au fost modificate cu succes!");
+                    StatusAplicatie = $"S-a modificat clientul cu ID-ul {clientSelectat.IdClient}.";
+                    dgClienti.ItemsSource = null;
+                    dgClienti.ItemsSource = adminClienti.GetClienti();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selectați mai întâi un client din tabel.");
+            }
+            ReseteazaClient();
+        }
+
+        private void ActualizeazaStatisticiStatut()
+        {
+            var totalMasini = adminMasini.GetMasini()?.Count ?? 0;
+            var totalClienti = adminClienti.GetClienti()?.Count ?? 0;
+
+            NumarStatisticiText = $"Bază activă: {totalMasini} Mașini stocate | {totalClienti} Clienți înregistrați";
+        }
+        private void ReseteazaClient()
+        {   
+            txtNumeClient.Text = string.Empty;
+            txtPrenumeClient.Text = string.Empty;
+            txtTelefonClient.Text = string.Empty;
+            txtEmailClient.Text = string.Empty;
         }
     }
 }

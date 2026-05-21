@@ -7,7 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="800">
     <Grid>
-        <StackPanel Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Margin="15">
             <TextBlock Text="Mașină:" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
             <Border BorderBrush="Black" BorderThickness="1" Padding="10" CornerRadius="5" Background="#F9F9F9">
                 <StackPanel>
@@ -19,60 +24,83 @@
                     <TextBox x:Name="txtAn" Margin="0,0,0,5"/>
                     <Label x:Name="lblCuloare" Content="Culoare: " FontSize="14"/>
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                        <RadioButton x:Name="rbAlb"
-                             Content="Alb"
-                             IsChecked="True"
-                             Margin="5"/>
-                        <RadioButton x:Name="rbNegru"
-                             Content="Negru"
-                             Margin="5"/>
-                        <RadioButton x:Name="rbRosu"
-                             Content="Roșu"
-                             Margin="5"/>
-                        <RadioButton x:Name="rbAlbastru"
-                             Content="Albastru"
-                             Margin="5"/>
-                        <RadioButton x:Name="rbGri"
-                             Content="Gri"
-                             Margin="5"/>
+                        <RadioButton x:Name="rbAlb" Content="Alb" IsChecked="True" Margin="5"/>
+                        <RadioButton x:Name="rbNegru" Content="Negru" Margin="5"/>
+                        <RadioButton x:Name="rbRosu" Content="Roșu" Margin="5"/>
+                        <RadioButton x:Name="rbAlbastru" Content="Albastru" Margin="5"/>
+                        <RadioButton x:Name="rbGri" Content="Gri" Margin="5"/>
                     </StackPanel>
                     <Label x:Name="lblOptiuni" Content="Opțiuni: " FontSize="14"/>
-                    <StackPanel Orientation="Horizontal">
-                        <CheckBox x:Name="cbAerConditionat"
-                              Content="Aer Condiționat"
-                              Margin="5"/>
-                        <CheckBox x:Name="cbNavigatie"
-                              Content="Sistem Navigație"
-                              Margin="5"/>
-                        <CheckBox x:Name="cbCutieAutomata"
-                              Content="Cutie Automată"
-                              Margin="5"/>
-                        <CheckBox x:Name="cbScauneIncalzite"
-                              Content="Scaune Încălzite"
-                              Margin="5"/>
-                        <CheckBox x:Name="cbSenzoriParcare"
-                              Content="Senzori Parcare"
-                              Margin="5"/>
-                    </StackPanel>
+                    <WrapPanel>
+                        <CheckBox x:Name="cbAerConditionat" Content="Aer Conditionat" Margin="5"/>
+                        <CheckBox x:Name="cbNavigatie" Content="Navigatie" Margin="5"/>
+                        <CheckBox x:Name="cbCutieAutomata" Content="Cutie Automata" Margin="5"/>
+                        <CheckBox x:Name="cbScauneIncalzite" Content="Scaune Încălzite" Margin="5"/>
+                        <CheckBox x:Name="cbSenzoriParcare" Content="Senzori Parcare" Margin="5"/>
+                    </WrapPanel>
                 </StackPanel>
             </Border>
-            <TextBlock x:Name="txtMesajEroare" Foreground="Red" Margin="0,10" Visibility="Collapsed"/>
-            <UniformGrid Columns="2" Margin="0,10">
-                <Button Content="Adaugă" Click="btnAdauga_Click" Height="30" Margin="5"/>
-                <Button Content="Afiseaza" Click="btnAfiseaza_Click" Height="30" Margin="5"/>
-                <Button Content="Modifică" Click="btnModifica_Click" Height="30" Margin="5"/>
-                <Button Content="Caută" Click="btnCauta_Click" Height="30" Margin="5"/>
-                <Button Content="Reset" Click="btnReset_Click" Height="30" Margin="5"/>
+
+            <TextBlock x:Name="txtMesajEroare" Foreground="Red" Margin="0,5" Visibility="Collapsed"/>
+
+            <UniformGrid Columns="2" Margin="0,5">
+                <Button Content="Adaugă" Click="btnAdauga_Click" Height="25" Margin="2"/>
+                <Button Content="Afiseaza" Click="btnAfiseaza_Click" Height="25" Margin="2"/>
+                <Button Content="Modifică" Click="btnModifica_Click" Height="25" Margin="2"/>
+                <Button Content="Caută" Click="btnCauta_Click" Height="25" Margin="2"/>
+                <Button Content="Reset" Click="btnReset_Click" Height="25" Margin="2"/>
             </UniformGrid>
-            <DataGrid x:Name="dgMasini" AutoGenerateColumns="False" Margin="0,10" Height="200">
+
+            <DataGrid x:Name="dgMasini" AutoGenerateColumns="False" Margin="0,5" Height="180">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Marca" Binding="{Binding Firma}"/>
-                    <DataGridTextColumn Header="Model" Binding="{Binding Model}"/>
-                    <DataGridTextColumn Header="An Fabricație" Binding="{Binding AnFabricatie}"/>
-                    <DataGridTextColumn Header="Culoare" Binding="{Binding Culoare}"/>
-                    <DataGridTextColumn Header="Dotări" Binding="{Binding Optiuni}"/>
+                    <DataGridTextColumn Header="ID" Binding="{Binding IDMasina, Mode=TwoWay}" Width="*"/>
+                    <DataGridTextColumn Header="Marca" Binding="{Binding Firma, Mode=TwoWay}" Width="*"/>
+                    <DataGridTextColumn Header="Model" Binding="{Binding Model, Mode=TwoWay}" Width="*"/>
+                    <DataGridTextColumn Header="An" Binding="{Binding AnFabricatie, Mode=TwoWay}" Width="*"/>
+                    <DataGridTextColumn Header="Culoare" Binding="{Binding Culoare, Mode=TwoWay}" Width="*"/>
+                    <DataGridTextColumn Header="Opțiuni" Binding="{Binding Optiuni, Mode=TwoWay}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
+
+        <StackPanel Grid.Column="1" Margin="15">
+            <TextBlock Text="Client:" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+            <Border BorderBrush="Black" BorderThickness="1" Padding="10" CornerRadius="5" Background="#F2FDF2">
+                <StackPanel>
+                    <Label Content="Nume: " FontSize="14"/>
+                    <TextBox x:Name="txtNumeClient" Margin="0,0,0,5"/>
+                    <Label Content="Prenume: " FontSize="14"/>
+                    <TextBox x:Name="txtPrenumeClient" Margin="0,0,0,5"/>
+                    <Label Content="Telefon: " FontSize="14"/>
+                    <TextBox x:Name="txtTelefonClient" Margin="0,0,0,5"/>
+                    <Label Content="Email: " FontSize="14"/>
+                    <TextBox x:Name="txtEmailClient" Margin="0,0,0,5"/>
+                </StackPanel>
+            </Border>
+
+            <UniformGrid Columns="3" Margin="0,12">
+                <Button Content="Adaugă Client" Click="btnAdaugaClient_Click" Height="25" Margin="2"/>
+                <Button Content="Afișează Clienți" Click="btnAfiseazaClienti_Click" Height="25" Margin="2"/>
+                <Button Content="Modifică Client" Click="btnModificaClient_Click" Height="25" Margin="2"/>
+            </UniformGrid>
+
+            <DataGrid x:Name="dgClienti" AutoGenerateColumns="False" Margin="0,5" Height="180" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding IdClient, Mode=TwoWay}" Width="*"/>
+                    <DataGridTextColumn Header="Nume" Binding="{Binding Nume, Mode=TwoWay}" Width="*"/>
+                    <DataGridTextColumn Header="Prenume" Binding="{Binding Prenume, Mode=TwoWay}" Width="*"/>
+                    <DataGridTextColumn Header="Telefon" Binding="{Binding Telefon, Mode=TwoWay}" Width="*"/>
+                    <DataGridTextColumn Header="Email" Binding="{Binding Email, Mode=TwoWay}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Border BorderBrush="DarkGray" BorderThickness="1" Margin="0,10,0,0" Padding="8" Background="#EAEAEA" CornerRadius="4">
+                <StackPanel>
+                    <TextBlock Text="{Binding NumarStatisticiText, UpdateSourceTrigger=PropertyChanged}" FontSize="12" FontWeight="Bold" Foreground="Navy"/>
+                    <TextBlock Text="{Binding StatusAplicatie, UpdateSourceTrigger=PropertyChanged}" FontSize="11" FontStyle="Italic" Foreground="DarkCyan" Margin="0,2,0,0"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
     </Grid>
 </Window>
+    
