@@ -22,7 +22,8 @@ namespace LibrarieModele
         SenzoriParcare = 16
     }
     public class Masina
-    {   
+    {
+        public string DetaliiComplete => $"ID: {IDMasina} | {Firma} | {Model} | {AnFabricatie} | {Culoare} | {Optiuni}";
         public int IDMasina { get; set; }
         public string Firma { get; set; }
         public string Model { get; set; }

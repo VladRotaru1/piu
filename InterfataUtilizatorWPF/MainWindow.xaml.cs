@@ -22,6 +22,9 @@ namespace InterfataUtilizatorWPF
     {
         AdministrareMasini_FisierText adminMasini;
         AdministrareClienti_FisierText adminClienti;
+        AdministrareTranzactii_FisierText adminTranzactii;
+        private const int MIN_CARACTERE = 1;
+        private const int AN_MINIM = 1900;
         private string _statusAplicatie;
         public string StatusAplicatie
         {
@@ -41,27 +44,27 @@ namespace InterfataUtilizatorWPF
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
-        private const int MAX_CARACTERE = 15;
-        private const int AN_MINIM = 1900;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            string numeFisier = "masini.txt";
-            adminMasini = new AdministrareMasini_FisierText(numeFisier);
+            adminMasini = new AdministrareMasini_FisierText("masini.txt");
             // Inițializare fișier pentru a doua entitate
             adminClienti = new AdministrareClienti_FisierText("clienti.txt");
-
+            // Inițializare fișier pentru a 3-a entitate
+            adminTranzactii = new AdministrareTranzactii_FisierText("tranzactii.txt");
             // Activarea legăturii (DataContext) pentru Data Binding
             this.DataContext = this;
 
-            // Dimensiuni ideale pentru ecranul pe 2 coloane
             this.Width = 1000;
             this.Height = 700;
 
+            cbMasiniTranzactie.ItemsSource = adminMasini.GetMasini();
+            cbVanzatoriTranzactie.ItemsSource = adminClienti.GetClienti();
+            cbCumparatoriTranzactie.ItemsSource = adminClienti.GetClienti();
             // Mesaje inițiale transmise direct prin binding în interfață
-            StatusAplicatie = "Sistem pregătit. Gata pentru operații CRUD.";
+            StatusAplicatie = "Sistem pregătit.";
             ActualizeazaStatisticiStatut();
         }
         private void btnAdauga_Click(object sender, RoutedEventArgs e)
@@ -73,17 +76,17 @@ namespace InterfataUtilizatorWPF
             string erori = "";
 
             // 1. Validare Firma
-            if (string.IsNullOrWhiteSpace(txtFirma.Text) || txtFirma.Text.Length > MAX_CARACTERE)
+            if (string.IsNullOrWhiteSpace(txtFirma.Text) || txtFirma.Text.Length < MIN_CARACTERE)
             {
                 lblFirma.Foreground = Brushes.Red;
-                erori += "Firma invalidă (max 15 car). ";
+                erori += "Firma invalidă (min 1 car). ";
                 dateValide = false;
             }
             // 2. Validare Model
-            if (string.IsNullOrEmpty(txtModel.Text) || txtModel.Text.Length > MAX_CARACTERE)
+            if (string.IsNullOrEmpty(txtModel.Text) || txtModel.Text.Length < MIN_CARACTERE)
             {
                 lblModel.Foreground = Brushes.Red;
-                erori += "Model invalid (max 15 car). ";
+                erori += "Model invalid (min 1 car). ";
                 dateValide = false;
             }
 
@@ -105,6 +108,7 @@ namespace InterfataUtilizatorWPF
                 culoare = CuloareMasina.Gri;
             if (rbAlbastru.IsChecked == true)
                 culoare = CuloareMasina.Albastru;
+
             Dotari dotari = Dotari.None;
             if (cbAerConditionat.IsChecked == true)
                 dotari |= Dotari.AerConditionat;
@@ -364,6 +368,151 @@ namespace InterfataUtilizatorWPF
             txtPrenumeClient.Text = string.Empty;
             txtTelefonClient.Text = string.Empty;
             txtEmailClient.Text = string.Empty;
+        }
+        // ==========================================
+        // EVENIMENTE CRUD PENTRU TRANZACȚII
+        // ==========================================
+        private void btnAdaugaTranzactie_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // 1. Preluăm datele introduse de utilizator
+                // Verificăm dacă s-a selectat ceva în ComboBox-uri
+                if (cbMasiniTranzactie.SelectedItem == null ||
+                    cbVanzatoriTranzactie.SelectedItem == null ||
+                    cbCumparatoriTranzactie.SelectedItem == null)
+                {
+                    MessageBox.Show("Vă rugăm să selectați o mașină, un vânzător și un cumpărător din liste!");
+                    return;
+                }
+
+                // Preluăm direct obiectele complete! (Fără parsări, fără căutări secundare)
+                Masina masinaGasita = (Masina)cbMasiniTranzactie.SelectedItem;
+                Client vanzatorGasit = (Client)cbVanzatoriTranzactie.SelectedItem;
+                Client cumparatorGasit = (Client)cbCumparatoriTranzactie.SelectedItem;
+
+                // Tranzactie.cs folosește double pentru preț, așa că facem parsarea direct în double   
+                double pret = double.Parse(txtPretTranzactie.Text);
+
+                if (!double.TryParse(txtPretTranzactie.Text, out pret) || pret <= 0)
+                {
+                    MessageBox.Show("Vă rugăm să introduceți un preț valid (numeric și mai mare decât 0)!");
+                    return;
+                }
+
+                // 2. Căutăm mașina și clienții în baza de date (fișiere)
+                var listaMasini = adminMasini.GetMasini();
+                var listaClienti = adminClienti.GetClienti();
+
+                // 4. Preluăm data, calculăm noul ID pentru tranzacție
+                int nouID = 1;
+                var tranzactiiExistente = adminTranzactii.GetTranzactii();
+                if (tranzactiiExistente != null && tranzactiiExistente.Count > 0)
+                {
+                    nouID = tranzactiiExistente.Max(t => t.IdTranzactie) + 1;
+                }
+
+                DateTime dataTranzactie = dpDataTranzactie.SelectedDate ?? DateTime.Now;
+                if (dataTranzactie.Date < DateTime.Today)
+                {
+                    MessageBox.Show("Eroare: Nu puteți înregistra o tranzacție cu o dată din trecut! Selectați ziua de azi sau o dată viitoare.");
+                    return;
+                }
+
+                // 5. Creăm tranzacția trimițând OBIECTELE REALE găsite mai sus!
+                Tranzactie t = new Tranzactie(nouID, vanzatorGasit, cumparatorGasit, masinaGasita, pret, dataTranzactie);
+
+                // Salvăm în fișier
+                adminTranzactii.AddTranzactie(t);
+
+                MessageBox.Show("Tranzacția a fost înregistrată cu succes!");
+
+                StatusAplicatie = $"Adăugat tranzacție nouă cu ID: {t.IdTranzactie}";
+                ActualizeazaStatisticiStatut();
+
+                // 6. Reîmprospătăm tabelul
+                ActualizeazaTabelTranzactii();
+
+                //resetăm câmpurile după adăugare
+                cbMasiniTranzactie.SelectedIndex = -1;
+                cbVanzatoriTranzactie.SelectedIndex = -1;
+                cbCumparatoriTranzactie.SelectedIndex = -1;
+
+                // Golește căsuța pentru preț
+                txtPretTranzactie.Text = string.Empty;
+
+                // Pune data înapoi pe ziua curentă
+                dpDataTranzactie.SelectedDate = DateTime.Now;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Eroare la adăugarea tranzacției! Verificați formatul numerelor.\nDetalii: " + ex.Message);
+            }
+        }
+        private void ActualizeazaTabelTranzactii()
+        {
+            try
+            {
+                // 1. Preluăm listele brute din toate cele 3 fișiere text
+                var listaTranzactii = adminTranzactii.GetTranzactii();
+                var listaMasini = adminMasini.GetMasini();
+                var listaClienti = adminClienti.GetClienti();
+
+                // 2. Facem corelarea (lipirea) obiectelor complete în funcție de ID-uri
+                if (listaTranzactii != null)
+                {
+                    foreach (var t in listaTranzactii)
+                    {
+                        // Corelare Mașină: Înlocuim mașina goală cu cea completă din masini.txt
+                        if (t.MasinaVanduta != null && listaMasini != null)
+                        {
+                            var masinaCompleta = listaMasini.FirstOrDefault(m => m.IDMasina == t.MasinaVanduta.IDMasina);
+                            if (masinaCompleta != null)
+                            {
+                                t.MasinaVanduta = masinaCompleta;
+                            }
+                        }
+
+                        // Corelare Vânzător: Înlocuim clientul gol cu cel complet din clienti.txt
+                        if (t.Vanzator != null && listaClienti != null)
+                        {
+                            var vanzatorComplet = listaClienti.FirstOrDefault(c => c.IdClient == t.Vanzator.IdClient);
+                            if (vanzatorComplet != null)
+                            {
+                                t.Vanzator = vanzatorComplet;
+                            }
+                        }
+
+                        // Corelare Cumpărător: Înlocuim clientul gol cu cel complet din clienti.txt
+                        if (t.Cumparator != null && listaClienti != null)
+                        {
+                            var cumparatorComplet = listaClienti.FirstOrDefault(c => c.IdClient == t.Cumparator.IdClient);
+                            if (cumparatorComplet != null)
+                            {
+                                t.Cumparator = cumparatorComplet;
+                            }
+                        }
+                    }
+                }
+
+                // 3. Trimitem lista gata completată cu toate numele și detaliile direct în DataGrid
+                dgTranzactii.ItemsSource = null;
+                dgTranzactii.ItemsSource = listaTranzactii;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Eroare la încărcarea și corelarea datelor: " + ex.Message);
+            }
+        }
+        private void btnAfiseazaTranzactii_Click(object sender, RoutedEventArgs e)
+        {
+            ActualizeazaTabelTranzactii();
+
+            if (StatusAplicatie != null)
+            {
+                StatusAplicatie = "Au fost afișate tranzacțiile din istoric.";
+                ActualizeazaStatisticiStatut();
+            }
         }
     }
 }

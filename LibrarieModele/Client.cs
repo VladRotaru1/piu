@@ -8,6 +8,7 @@ namespace LibrarieModele
 {
     public class Client
     {
+        public string NumeComplet => $"ID: {IdClient} | {Nume} | {Prenume}";
         public int IdClient { get; set; }
         public string Nume { get; set; }
         public string Prenume { get; set; }

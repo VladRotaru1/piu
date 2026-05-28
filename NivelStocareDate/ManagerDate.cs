@@ -46,7 +46,7 @@ namespace NivelStocareDate
             return tranzactii.Where(t => t.MasinaVanduta.Firma.Equals(firma, StringComparison.OrdinalIgnoreCase)).ToList();
         }
 
-        public List<Tranzactie> FiltreazaDupaPret(decimal pretMinim, decimal pretMaxim)
+        public List<Tranzactie> FiltreazaDupaPret(double pretMinim, double pretMaxim)
         {
             return tranzactii.Where(t => t.Pret >= pretMinim && t.Pret <= pretMaxim).ToList();
         }
